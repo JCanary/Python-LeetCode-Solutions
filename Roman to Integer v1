@@ -1,0 +1,88 @@
+# This works, but is not very elegant. Needs to be revisited.
+
+# Making dictionary for roman numerals
+numerals = {
+    "I" : 1,
+    "IV" : 4,
+    "V" : 5,
+    "IX" : 9,
+    "X" : 10,
+    "XL" : 40,
+    "L" : 50,
+    "XC" : 90,
+    "C" : 100,
+    "CD" : 400,
+    "D" : 500,
+    "CM" : 900,
+    "M" : 1000,    
+ }
+
+# Gathers roman numeral
+raw_numeral = input("Type Roman Numeral: ")
+# Makes numeral uppercase
+upper_numeral = raw_numeral.upper()
+
+# Quick solution for single character numerals
+numeral_length = len(upper_numeral)
+if numeral_length == 1:
+    print(numerals[upper_numeral])
+    exit()
+
+# Robust solution, this sucks
+M = upper_numeral.count("M")
+CM = upper_numeral.count("CM")
+D = upper_numeral.count("D")
+CD = upper_numeral.count("CD")
+C = upper_numeral.count("C")
+XC = upper_numeral.count("XC")
+L = upper_numeral.count("L")
+XL = upper_numeral.count("XL")
+X = upper_numeral.count("X")
+IX = upper_numeral.count("IX")
+V = upper_numeral.count("V")
+IV = upper_numeral.count("IV")
+I = upper_numeral.count("I")
+
+# Flow controls for redundant numerals
+if I >= 1 and IV or IX == 1:
+    I = 0 
+
+if V >= 1 and IV == 1:
+    V = 0
+
+if X >= 1 and IX or XL== 1:
+    X = 0
+
+if L >= 1 and XL == 1:
+    L = 0
+
+if C >= 1 and XC or CD or CM== 1:
+    C = 0
+
+if D >= 1 and CD == 1:
+    D = 0
+
+if M >= 1 and CM == 1:
+    M = 0
+
+print(CM)
+
+# Adding everything together
+# f is short for final
+f_I = I * numerals["I"]
+f_IV = IV * numerals["IV"]
+f_V = V * numerals["V"]
+f_IX = IX * numerals["IX"]
+f_X = X * numerals["X"]
+f_XL = XL * numerals["XL"]
+f_L = L * numerals["L"]
+f_XC = XC * numerals["XC"]
+f_C = C * numerals["C"]
+f_CD = CD * numerals["CD"]
+f_D = D * numerals["D"]
+f_CM = CM * numerals["CM"]
+f_M = M * numerals["M"]
+
+F = f_I + f_IV + f_V + f_IX + f_X + f_XL + f_L + f_XC + f_C + f_CD + f_D + f_CM + f_M
+
+print(F)

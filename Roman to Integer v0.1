@@ -1,5 +1,4 @@
-# Problems with flow controls, needs to be fixed. 
-# Making dictionary for roman numerals
+ # Dictionary for roman numerals
 numerals = {
     "I" : 1,
     "IV" : 4,
@@ -27,7 +26,7 @@ if numeral_length == 1:
     print(numerals[upper_numeral])
     exit()
 
-# Robust solution, this sucks
+# The long way around
 M = upper_numeral.count("M")
 CM = upper_numeral.count("CM")
 D = upper_numeral.count("D")
@@ -44,28 +43,26 @@ I = upper_numeral.count("I")
 
 # Flow controls for redundant numerals
 if I >= 1 and IV or IX == 1:
-    I = 0 
+    I = I - (IV + IX) 
 
 if V >= 1 and IV == 1:
-    V = 0
+    V = V - 1
 
-if X >= 1 and IX or XL== 1:
-    X = 0
+if X >= 1 and IX or XL or XC == 1:
+    X = X - (IX + XL + XC)
 
 if L >= 1 and XL == 1:
-    L = 0
+    L = L - 1
 
 if C >= 1 and XC or CD or CM== 1:
-    C = 0
+    C = C - (XC + CD + CM)
 
 if D >= 1 and CD == 1:
-    D = 0
+    D = D - 1
 
 if M >= 1 and CM == 1:
-    M = 0
-
-print(CM)
-
+    M = M - 1
+    
 # Adding everything together
 # f is short for final
 f_I = I * numerals["I"]

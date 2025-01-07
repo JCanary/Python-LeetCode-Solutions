@@ -1,0 +1,12 @@
+#Leetcode's class for submitting solutions
+#class Solution:
+    #def isPalindrome(self, x: int) -> bool:
+
+# Takes user input to test if string is a palindrome
+x = input("Type a palindrome: ")
+txt = str(x)[::-1]
+if str(txt) == str(x):
+   x = True
+else:
+    x = False
+print(x)

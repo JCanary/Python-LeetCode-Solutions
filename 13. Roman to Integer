@@ -20,13 +20,6 @@ raw_numeral = input("Type Roman Numeral: ")
 # Makes numeral uppercase
 upper_numeral = raw_numeral.upper()
 
-# Quick solution for single character numerals
-numeral_length = len(upper_numeral)
-if numeral_length == 1:
-    print(numerals[upper_numeral])
-    exit()
-
-# The long way around
 M = upper_numeral.count("M")
 CM = upper_numeral.count("CM")
 D = upper_numeral.count("D")

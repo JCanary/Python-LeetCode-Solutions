@@ -1,0 +1,8 @@
+class Solution:
+    def lengthOfLastWord(self, s: str) -> int:
+        stripped_sting = s.rstrip()
+        if stripped_sting.isalpha() == True:
+            return(len(stripped_sting))
+        else:  
+            last_length = (len(stripped_sting) - stripped_sting.rindex(" ")) - 1
+            return(last_length)

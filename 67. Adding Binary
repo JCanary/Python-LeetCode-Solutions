@@ -1,0 +1,47 @@
+class Solution:
+    def addBinary(self, a: str, b: str) -> str:
+        # Initializing
+        str_a = a[::-1]
+        str_b = b[::-1]
+        str_pos = 0
+        total = 0
+        char_sum = 0
+
+        # String A binary to decimal
+        for c in str_a:
+            char_sum = int(c) * 2 ** str_pos
+            total += char_sum
+            str_pos += 1
+        str_a = total
+
+        # Reseting variables
+        str_pos = 0
+        total = 0
+        char_sum = 0
+
+        # String B binary to decimal
+        for c in str_b:
+            char_sum = int(c) * 2 ** str_pos
+            total += char_sum
+            str_pos += 1
+        str_b = total
+
+        str_c = str_a + str_b
+        answer = ""
+
+        if str_c == 0:
+            return "0"
+        # Conversion back to binary
+        while str_c > 0:
+            str_c_quo = str_c // 2
+            str_c_rem = str_c % 2
+            if str_c_rem != 0:
+                answer = answer + "1"
+            else:
+                answer = answer + "0"
+            str_c = str_c_quo
+
+        # Reversing again
+        answer = answer[::-1]
+
+        return answer

@@ -1,0 +1,8 @@
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        table = {}
+        for i, n in enumerate(nums):  
+                y = target - n 
+                if y in table: 
+                    return [table[y], i]
+                table[n] = i

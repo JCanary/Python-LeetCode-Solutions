@@ -1,0 +1,24 @@
+class Solution:
+    def isPalindrome(self, s: str) -> bool:
+        s_list = []
+        rev_list = []
+        for c in s:
+            if c.isalpha():        
+                s_list.append(c)
+                rev_list.append(c)
+            if c.isdigit():
+                s_list.append(c)
+                rev_list.append(c)
+
+        rev_list.reverse()
+
+        s_string = "".join(s_list)
+        rev_string = "".join(rev_list)
+
+        s_string = s_string.lower()
+        rev_string = rev_string.lower()
+
+        if s_string == rev_string:
+            return True
+        else:
+            return False

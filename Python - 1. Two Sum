@@ -1,3 +1,5 @@
+# 0 ms Runtime
+# 18.69 MB Memory
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
         table = {}

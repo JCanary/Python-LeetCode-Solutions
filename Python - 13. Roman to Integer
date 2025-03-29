@@ -1,3 +1,5 @@
+// 7ms Runtime Beats 41.69%
+// 18.03MB Memory Beats 21.11%
 class Solution:
     def romanToInt(self, s: str) -> int:
         # Dictionary for roman numerals

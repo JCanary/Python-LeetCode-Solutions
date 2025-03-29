@@ -1,3 +1,5 @@
+// 4ms Runtime Beats 80.72%
+// 17.84MB Memory Beats 39.34%
 class Solution:
     def isPalindrome(self, x: int) -> bool:
         txt = str(x)[::-1]
